@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <button class="openbtn" id="openNav" onclick="openNav()">☰Buka</button>
+            <button class="openbtn" id="closeNav" onclick="closeNav()">☰Tutup</button>
+        </div>
+        <div class="contain">
+            <h2>Collapsed Sidebar</h2>
+            <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("openNav").style.display = "none";
+            document.getElementById("closeNav").style.display = "block";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("openNav").style.display = "block";
+            document.getElementById("closeNav").style.display = "none";
+        }
+
+
+        function myFunction(x) {
+            if (x.matches) { // If media query matches
+                // document.body.style.backgroundColor = "yellow";
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+
+                document.getElementById("closeNav").style.display = "none";
+                document.getElementById("openNav").style.display = "block";
+
+            } else {
+                // document.body.style.backgroundColor = "pink";
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.getElementById("openNav").style.display = "none";
+                document.getElementById("closeNav").style.display = "block";
+            }
+        }
+
+        var x = window.matchMedia("(max-width: 540px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
+
+
+
+    </script>
+
+</body>
+
+</html>
